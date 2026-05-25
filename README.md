@@ -28,4 +28,6 @@ The app is ready for a simple split deployment:
 - Database: Postgres in production; SQLite is used locally for the prototype.
 - Frontend: static Vite build with `VITE_API_URL=https://your-backend/api`.
 
-Deployment was not completed from this machine because provider credentials were not supplied.
+### Live App link 
+
+https://breathe-esg-review-dashboard-frontend.onrender.com
