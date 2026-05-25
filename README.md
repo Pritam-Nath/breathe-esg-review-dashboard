@@ -1,0 +1,31 @@
+# Breathe ESG ingestion prototype
+
+Django REST + React prototype for ingesting SAP procurement/fuel, utility electricity, and corporate travel activity data, normalizing rows, surfacing failures/suspicious values, and approving/locking rows for audit.
+
+## Local run
+
+```powershell
+cd D:\Codex\BreatheESG
+.\.venv\Scripts\python.exe manage.py migrate
+.\.venv\Scripts\python.exe manage.py runserver 127.0.0.1:8000
+```
+
+In another terminal:
+
+```powershell
+cd D:\Codex\BreatheESG\frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`, then click `Load demo`.
+
+## Deployment notes
+
+The app is ready for a simple split deployment:
+
+- Backend: Render/Railway/Fly web service running `gunicorn backend.wsgi`.
+- Database: Postgres in production; SQLite is used locally for the prototype.
+- Frontend: static Vite build with `VITE_API_URL=https://your-backend/api`.
+
+Deployment was not completed from this machine because provider credentials were not supplied.

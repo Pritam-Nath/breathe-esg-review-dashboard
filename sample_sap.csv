@@ -1,0 +1,4 @@
+DocumentItem,PostingDate,Plant,MaterialGroup,Quantity,Unit,NetValue,Currency
+4900008811-10,2026-01-31,DE07,Diesel fuel,18850,L,26750,EUR
+4900008811-20,31.01.2026,IN03,Kraftstoff Diesel,42100,LTR,39840,INR
+4900009020-10,2026-02-03,US14,Purchased steel parts,2400,KG,188000,USD

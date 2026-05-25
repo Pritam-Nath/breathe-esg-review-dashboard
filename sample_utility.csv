@@ -1,0 +1,4 @@
+bill_id,meter_id,period_start,period_end,usage_kwh,unit,amount,currency
+GB-2026-001,MTR-ATL-08,2026-01-12,2026-02-11,84500,kWh,10150,USD
+GB-2026-002,MTR-HOU-02,2026-01-01,2026-02-28,312000,kWh,37620,USD
+GB-2026-003,MTR-MUC-01,2026-02-01,2026-02-29,,kWh,9940,EUR

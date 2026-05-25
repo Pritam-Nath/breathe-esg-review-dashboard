@@ -1,0 +1,4 @@
+expense_id,travel_date,category,origin,destination,distance,unit,amount,currency,cost_center
+CNQ-7721,2026-02-04,flight,SFO,JFK,4160,km,612,USD,SALES-US
+CNQ-7722,2026-02-06,hotel,JFK,JFK,3,night,735,USD,SALES-US
+CNQ-7723,2026-02-07,taxi ground,JFK,Manhattan,0,mi,54,USD,SALES-US
