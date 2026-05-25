@@ -2,9 +2,14 @@
 
 Django REST + React prototype for ingesting SAP procurement/fuel, utility electricity, and corporate travel activity data, normalizing rows, surfacing failures/suspicious values, and approving/locking rows for audit.
 
-### Preview
+# Preview
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/21166a56-7144-4496-8adb-26c7f5e653de" />
+
+#
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1618b7b8-f238-4135-8f0c-8ec77c13609d" />
+
 
 
 
