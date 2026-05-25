@@ -64,25 +64,44 @@ function App() {
   const [summary, setSummary] = useState<Summary | null>(null);
   const [source, setSource] = useState("all");
   const [busy, setBusy] = useState(false);
+  const [apiError, setApiError] = useState("");
   const [uploadType, setUploadType] = useState("sap");
   const [file, setFile] = useState<File | null>(null);
 
   async function load() {
     setBusy(true);
-    const suffix = source === "all" ? "" : `?source_type=${source}`;
-    const [summaryRes, rowsRes] = await Promise.all([
-      fetch(`${API}/summary/`),
-      fetch(`${API}/rows/${suffix}`),
-    ]);
-    setSummary(await summaryRes.json());
-    setRows(await rowsRes.json());
-    setBusy(false);
+    setApiError("");
+    try {
+      const suffix = source === "all" ? "" : `?source_type=${source}`;
+      const [summaryRes, rowsRes] = await Promise.all([
+        fetch(`${API}/summary/`),
+        fetch(`${API}/rows/${suffix}`),
+      ]);
+      if (!summaryRes.ok || !rowsRes.ok) {
+        throw new Error("API request failed");
+      }
+      setSummary(await summaryRes.json());
+      setRows(await rowsRes.json());
+    } catch {
+      setApiError(`Could not reach backend API at ${API}`);
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function seedDemo() {
     setBusy(true);
-    await fetch(`${API}/seed-demo/`, { method: "POST" });
-    await load();
+    setApiError("");
+    try {
+      const response = await fetch(`${API}/seed-demo/`, { method: "POST" });
+      if (!response.ok) {
+        throw new Error("Seed failed");
+      }
+      await load();
+    } catch {
+      setApiError(`Demo seed failed. Check CORS and backend URL: ${API}`);
+      setBusy(false);
+    }
   }
 
   async function act(id: number, action: "approve" | "lock") {
@@ -131,6 +150,7 @@ function App() {
           <button onClick={load} disabled={busy}><RefreshCw size={17} className={busy ? "spin" : ""} /> Refresh</button>
         </div>
       </section>
+      {apiError && <section className="apiError">{apiError}</section>}
 
       <section className="hero">
         <div>

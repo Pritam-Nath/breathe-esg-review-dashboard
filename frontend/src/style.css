@@ -16,6 +16,7 @@ main { min-height: 100vh; padding: 22px; background: linear-gradient(140deg, rgb
 
 .topbar, .hero, .metrics, .sourceGrid, .workbench { max-width: 1240px; margin: 0 auto; }
 .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
+.apiError { max-width: 1240px; margin: 0 auto 14px; padding: 12px 14px; border-radius: 8px; background: #fff0db; color: #7a3d00; border: 1px solid #f0c37c; font-weight: 750; }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brandMark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: #0f5f55; color: white; box-shadow: 0 14px 28px rgba(15, 95, 85, .24); }
 .brand strong { display: block; font-size: 16px; }
